@@ -1,11 +1,8 @@
 FROM python:3.13-slim
 
-# Install system dependencies required by psycopg2 (libpq)
+# Install libpq for psycopg runtime
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    libpq-dev \
-    gcc \
-    python3-dev \
-    build-essential \
+    libpq5 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
